@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Hit the Beaver</string>
+    <string name="todo">TODO</string>
+    <string name="score"> </string>
+    <string name="congrats">Congrats</string>
+    <string name="hit">Score:</string>
+</resources>

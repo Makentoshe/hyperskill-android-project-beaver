@@ -1,7 +1,0 @@
-<resources>
-    <string name="app_name">Game</string>
-    <string name="android">Android</string>
-    <string name="score">SCORE</string>
-    <string name="todo">TODO</string>
-    <string name="congrats">congrats</string>
-</resources>

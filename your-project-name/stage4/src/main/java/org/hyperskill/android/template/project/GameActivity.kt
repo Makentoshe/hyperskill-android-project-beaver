@@ -1,0 +1,52 @@
+package org.hyperskill.android.template.project
+
+import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.os.CountDownTimer
+import android.widget.ImageButton
+import android.widget.TextView
+import android.widget.Toast
+import androidx.constraintlayout.widget.ConstraintLayout
+
+class GameActivity : AppCompatActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_game)
+        playGame()
+    }
+
+    fun playGame() {
+        val image = pickImage()
+        clickable(image).start()
+    }
+
+    fun pickImage(): ImageButton {
+        val images = findViewById<ConstraintLayout>(R.id.gameLayout).touchables
+        images.shuffle()
+        val randomImage = images[0] as ImageButton
+        randomImage.setImageResource(R.drawable.mole)
+        return randomImage
+    }
+
+    fun clickable(image: ImageButton): CountDownTimer {
+        image.setOnClickListener {
+            image.setImageResource(R.drawable.hit)
+        }
+
+        return object : CountDownTimer(1000, 100) {
+
+            override fun onTick(millisUntilFinished: Long) {
+
+            }
+
+            override fun onFinish() {
+                image.setImageResource(R.drawable.hole)
+                image.setOnClickListener(null)
+                playGame()
+            }
+
+        }
+    }
+}
